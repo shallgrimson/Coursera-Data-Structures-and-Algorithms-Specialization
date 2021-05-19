@@ -2,7 +2,7 @@
 Problem 5 - Rope
 
 Make use of the modified splay tree from the previous problem
-#This works but using code from previous example, could definetly speed it up and condense the process function
+#This works but using code from previous example, could definetly speed it up and maybe condense the process function
 '''
 
 import sys
