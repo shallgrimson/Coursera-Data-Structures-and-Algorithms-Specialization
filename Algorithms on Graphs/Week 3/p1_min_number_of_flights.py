@@ -3,7 +3,7 @@ Problem 1 - Computing the Minimum Number of Flight Segments
 '''
 
 import sys
-from Queue import Queue #THIS MAY HAVE TO BE CHANGED TO queue to get this to work on grader
+from queue import Queue #THIS MAY HAVE TO BE CHANGED TO queue to get this to work on grader
 
 '''
 Find distance between two nodes, using breadth first search

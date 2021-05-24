@@ -6,7 +6,7 @@ either connects a vertex from U to V or a vertex from V to U. In other words, fo
 either u belongs to U and v to V, or u belongs to V and v to U. We can also say that there is no edge that connects vertices of same set.
 '''
 import sys
-from Queue import Queue #THIS MAY HAVE TO BE CHANGED TO queue to get this to work on grader
+from queue import Queue #THIS MAY HAVE TO BE CHANGED TO queue to get this to work on grader
 
 '''
 Check if bipartite
@@ -65,8 +65,7 @@ def bipartite(adj, s):
 #                     return 0
                 
 #     return 1
-                
-    
+
 if __name__ == '__main__':
     input = sys.stdin.readline()
     data = list(map(int, input.split()))
