@@ -1,5 +1,7 @@
 '''
-Problem 3 - Detecting Anomalies in Currency Exchange Rates
+Problem 2 - Detecting Anomalies in Currency Exchange Rates
+
+Soln:  Use Bellman Ford's algorithm
 '''
 import sys
 
@@ -8,10 +10,11 @@ def negative_cycle(adj, cost):
     rates[0] = 0 #just start at node 0
     
     #run through distances once
-    for node in range(len(adj)):
-        for neighbour, path_cost in zip(adj[node], cost[node]): #through neighbours of current node
-            if rates[neighbour] > rates[node] + path_cost: #if current cost high then replace with new cost
-                rates[neighbour] = rates[node] + path_cost
+    for _ in range(len(adj)):
+        for node in range(len(adj)): #explore every edge
+            for neighbour, path_cost in zip(adj[node], cost[node]): #through neighbours of current node
+                if rates[neighbour] > rates[node] + path_cost: #if current cost high then replace with new cost
+                    rates[neighbour] = rates[node] + path_cost
     
     #check if negative cycle (basically if we can lower the current costs somehow)
     for node in range(len(adj)):
@@ -26,7 +29,6 @@ def negative_cycle(adj, cost):
 if __name__ == '__main__':
     input = sys.stdin.readline()
     data = list(map(int, input.split()))
-
     n, m = data[0:2]
     data = data[2:]
     edges = list(zip(zip(data[0:(3 * m):3], data[1:(3 * m):3]), data[2:(3 * m):3]))

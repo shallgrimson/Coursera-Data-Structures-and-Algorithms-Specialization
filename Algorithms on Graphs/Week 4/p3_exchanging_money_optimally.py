@@ -11,15 +11,15 @@ def shortet_paths(adj, cost, s, distance, reachable, shortest):
     distance[s] = 0 #set start node value to 0
     reachable[s] = 1
     #run through distances once
-    for node in range(len(adj)):
-        for neighbour, path_cost in zip(adj[node], cost[node]): #through neighbours of current node
-            if distance[neighbour] > distance[node] + path_cost: #if current cost high then replace with new cost
-                distance[neighbour] = distance[node] + path_cost
-            reachable[neighbour] = 1 #can reach neighbour node
+    for _ in range(len(adj)):
+        for node in range(len(adj)): #explore every edge
+            for neighbour, path_cost in zip(adj[node], cost[node]): #through neighbours of current node
+                if distance[neighbour] > distance[node] + path_cost: #if current cost high then replace with new cost
+                    distance[neighbour] = distance[node] + path_cost
+                    reachable[neighbour] = 1 #can reach neighbour node
                 
                 
-                
-                
+            
     #check if negative cycle (basically if we can lower the current calculated costs somehow)
     q = queue.Queue()
     [q.put(i) for i in range(len(adj))]
@@ -49,8 +49,7 @@ if __name__ == '__main__':
     for ((a, b), w) in edges:
         adj[a - 1].append(b - 1)
         cost[a - 1].append(w)
-    s = data[0]
-    s -= 1
+    s = data[0]-1
     distance = [10**19] * n
     reachable = [0] * n
     shortest = [1] * n
